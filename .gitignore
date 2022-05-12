@@ -5,6 +5,7 @@
 /.pnp
 /.history
 /.husky
+./.idea
 .pnp.js
 
 # testing
