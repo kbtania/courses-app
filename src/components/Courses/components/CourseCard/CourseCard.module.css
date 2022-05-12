@@ -1,0 +1,11 @@
+.author {
+    margin: 0 auto;
+    white-space: nowrap;
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.details {
+    font-weight: bold;
+}
+

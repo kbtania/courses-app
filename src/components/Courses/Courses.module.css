@@ -1,0 +1,16 @@
+.search {
+    display: flex;
+}
+.addCourseBtn {
+    height: fit-content;
+    margin: 30px auto;
+}
+.noData {
+    text-align: center;
+    font-size: 24px;
+}
+@media (max-width: 768px) {
+    .search {
+        flex-direction: column;
+    }
+}

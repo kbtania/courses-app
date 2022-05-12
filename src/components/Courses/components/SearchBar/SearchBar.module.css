@@ -1,0 +1,9 @@
+.searchBar {
+    margin: 30px auto;
+    width: 50%;
+}
+@media (max-width: 768px) {
+    .searchBar {
+        width: 90%;
+    }
+}

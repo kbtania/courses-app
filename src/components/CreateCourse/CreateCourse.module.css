@@ -1,0 +1,28 @@
+.firstRow {
+    display: flex;
+    justify-content: space-between;
+}
+.createAuthorBtn {
+    margin: 10px 0;
+}
+.authorList, .chosenAuthorList {
+    height: 300px;
+    overflow-y: scroll;
+}
+.error:focus {
+    border: 2px solid red;
+}
+
+.noHint {
+    display: none;
+}
+.durationTime {
+    font-weight: bold;
+    font-size: 20px;
+}
+.duration {
+    margin: 10px 0;
+}
+.emptyAuthorsList {
+    display: none;
+}
