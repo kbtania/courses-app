@@ -14,8 +14,8 @@ function App() {
 			<Container>
 				<Header />
 				<Routes>
-					{localStorage.user && <Route index path='/*' element={<Courses />} />}
-					{!localStorage.user && <Route index path='/*' element={<Login />} />}
+					{localStorage.user && <Route index path='/' element={<Courses />} />}
+					{!localStorage.user && <Route index path='/' element={<Login />} />}
 					<Route path='registration' element={<Registration />} />
 					<Route path='login' element={<Login />} />
 					<Route path='courses/*' element={<Courses />} />

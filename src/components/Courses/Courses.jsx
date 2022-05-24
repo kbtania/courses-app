@@ -13,8 +13,6 @@ function Courses() {
 	const [courses, setCourses] = useState(mockedCoursesList);
 	const [searchedCourses, setSearchedCourses] = useState(mockedCoursesList);
 	const [allAuthors, setAllAuthors] = useState(mockedAuthorsList);
-	const [showCreateForm, setShowCreateForm] = useState(false);
-	const [showCoursesList, setShowCoursesList] = useState(true);
 	function getAuthor(course) {
 		let names = [];
 		course.authors.forEach((authorId) => {
@@ -58,21 +56,18 @@ function Courses() {
 									<MyButton
 										clickEvent={() => {
 											navigate('/courses/add');
-											setShowCreateForm(true);
-											setShowCoursesList(false);
 										}}
 										buttonText='Add new course'
 									/>
 								</div>
 							</div>
-							{showCoursesList &&
-								searchedCourses.map((item) => (
-									<CourseCard
-										key={item.id}
-										course={item}
-										author={getAuthor(item)}
-									></CourseCard>
-								))}
+							{searchedCourses.map((item) => (
+								<CourseCard
+									key={item.id}
+									course={item}
+									author={getAuthor(item)}
+								></CourseCard>
+							))}
 							{searchedCourses.length === 0 && (
 								<div className={styles.noData}>No data</div>
 							)}
