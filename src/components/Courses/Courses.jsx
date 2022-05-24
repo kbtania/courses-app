@@ -6,8 +6,10 @@ import SearchBar from './components/SearchBar/SearchBar';
 import { mockedCoursesList, mockedAuthorsList } from '../../constants';
 import MyButton from '../../common/Button/Button';
 import CreateCourse from '../CreateCourse/CreateCourse';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 function Courses() {
+	const navigate = useNavigate();
 	const [courses, setCourses] = useState(mockedCoursesList);
 	const [searchedCourses, setSearchedCourses] = useState(mockedCoursesList);
 	const [allAuthors, setAllAuthors] = useState(mockedAuthorsList);
@@ -34,7 +36,6 @@ function Courses() {
 		setSearchedCourses(filteredData);
 	};
 	const addCourse = (courseObj, authorObj) => {
-		console.log(courseObj);
 		setCourses([...courses, courseObj]);
 		authorObj.forEach((a) => {
 			if (!allAuthors.includes(a)) {
@@ -42,41 +43,47 @@ function Courses() {
 			}
 		});
 		setSearchedCourses([...searchedCourses, courseObj]);
+		console.log(searchedCourses);
 	};
 	return (
 		<div>
-			<div className={styles.search}>
-				<SearchBar handleSearch={searchCourses} />
-				<div className={styles.addCourseBtn}>
-					<MyButton
-						clickEvent={() => {
-							setShowCreateForm(true);
-							setShowCoursesList(false);
-						}}
-						buttonText='Add new course'
-					/>
-				</div>
-			</div>
-			{showCreateForm && (
-				<CreateCourse
-					display={() => {
-						setShowCreateForm(false);
-						setShowCoursesList(true);
-					}}
-					handleAddingCourse={addCourse}
-				></CreateCourse>
-			)}
-			{showCoursesList &&
-				searchedCourses.map((item) => (
-					<CourseCard
-						key={item.id}
-						course={item}
-						author={getAuthor(item)}
-					></CourseCard>
-				))}
-			{searchedCourses.length === 0 && (
-				<div className={styles.noData}>No data</div>
-			)}
+			<Routes>
+				<Route
+					path='/'
+					element={
+						<div>
+							<div className={styles.search}>
+								<SearchBar handleSearch={searchCourses} />
+								<div className={styles.addCourseBtn}>
+									<MyButton
+										clickEvent={() => {
+											navigate('/courses/add');
+											setShowCreateForm(true);
+											setShowCoursesList(false);
+										}}
+										buttonText='Add new course'
+									/>
+								</div>
+							</div>
+							{showCoursesList &&
+								searchedCourses.map((item) => (
+									<CourseCard
+										key={item.id}
+										course={item}
+										author={getAuthor(item)}
+									></CourseCard>
+								))}
+							{searchedCourses.length === 0 && (
+								<div className={styles.noData}>No data</div>
+							)}
+						</div>
+					}
+				/>
+				<Route
+					path='add'
+					element={<CreateCourse handleAddingCourse={addCourse} />}
+				/>
+			</Routes>
 		</div>
 	);
 }

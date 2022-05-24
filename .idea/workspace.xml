@@ -2,106 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36ca7f60-abdf-47e2-b940-72af6651eb02" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.history/src/common/Button/Button_20220502115706.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/common/Button/Button_20220505224034.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/common/Button/Button_20220505224045.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/common/Button/Button_20220505224050.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220502213252.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505205503.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505205544.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505205557.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505205743.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505210331.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505210649.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505213531.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505213553.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505213557.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505213641.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505213700.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505213710.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505213840.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505213846.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505213926.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505213939.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505213943.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505214217.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505214251.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505214334.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505214422.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505214504.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505214731.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505214827.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505214832.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505214911.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505215234.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505215726.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505215735.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505215816.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505215824.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505220000.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505224327.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505224404.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505224412.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505224951.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505225037.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505225131.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505225207.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505225213.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505225235.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505225343.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505225426.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505225509.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505225802.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505225820.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505225825.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220505225834.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/Courses_20220508211352.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220502222055.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505204211.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505205211.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505205219.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505205225.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505205236.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505205248.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505205255.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505205307.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505205312.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505205334.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505210347.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505212600.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505212609.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505212615.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505212640.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505213458.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505213542.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505213621.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505213624.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505214013.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505214033.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505214645.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505214652.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505214705.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505214850.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505214856.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505214945.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505215036.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505215057.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505215658.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505215750.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505215930.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505220044.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505220049.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505223940.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505224135.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505224152.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505224207.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505224227.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505224250.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505225345.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505225358.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.history/src/components/Courses/components/SearchBar/SearchBar_20220505225428.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.husky/pre-commit" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Courses/Courses.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Courses/Courses.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CreateCourse/CreateCourse.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateCourse/CreateCourse.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,24 +34,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Coding/ReactProjects/courses-app&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\Coding\\ReactProjects\\courses-app\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\WebStorm 2022.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Coding/ReactProjects/courses-app",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "D:\\Coding\\ReactProjects\\courses-app\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "D:\\WebStorm 2022.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="App.jsx" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/App.jsx" working-dir="$PROJECT_DIR$/src">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.App.jsx" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -162,7 +79,9 @@
       <workItem from="1652037302509" duration="4894000" />
       <workItem from="1652085035110" duration="23369000" />
       <workItem from="1652425878738" duration="43000" />
-      <workItem from="1652470901731" duration="200000" />
+      <workItem from="1652470901731" duration="1136000" />
+      <workItem from="1652618669609" duration="2397000" />
+      <workItem from="1653075000369" duration="40258000" />
     </task>
     <servers />
   </component>

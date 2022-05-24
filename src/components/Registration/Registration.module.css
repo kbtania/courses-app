@@ -1,0 +1,9 @@
+.form {
+    width: 50%;
+    margin: 0 auto;
+}
+.title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}

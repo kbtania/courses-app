@@ -5,8 +5,10 @@ import { v4 as uuidv4 } from 'uuid';
 import MyButton from '../../common/Button/Button';
 import styles from './CreateCourse.module.css';
 import { mockedAuthorsList } from '../../constants';
+import { useNavigate } from 'react-router-dom';
 
-function CreateCourse({ handleAddingCourse, display }) {
+function CreateCourse({ handleAddingCourse }) {
+	const navigate = useNavigate();
 	const [inputValue, setInputValue] = useState(''); // author
 	const [allAuthors, setAllAuthors] = useState(mockedAuthorsList);
 	const [courseAuthors, setCourseAuthors] = useState([]);
@@ -58,6 +60,29 @@ function CreateCourse({ handleAddingCourse, display }) {
 				: String(Math.round(minutes));
 		return `${rhours}:${rminutes}`;
 	}
+	function add() {
+		if (
+			title === '' ||
+			description === '' ||
+			courseAuthors.length === 0 ||
+			courseDuration < 1
+		) {
+			alert('Please, fill all the fields');
+		} else {
+			handleAddingCourse(
+				{
+					id: uuidv4(),
+					title: title,
+					description: description,
+					duration: courseDuration,
+					creationDate: '09/05/2002',
+					authors: courseAuthors.map((a) => a.id),
+				},
+				courseAuthors
+			);
+			navigate('/courses');
+		}
+	}
 	return (
 		<Form>
 			<Form.Group className='mb-3'>
@@ -69,7 +94,6 @@ function CreateCourse({ handleAddingCourse, display }) {
 						type='text'
 						placeholder='Enter title...'
 						onChange={(e) => {
-							console.log('E.TARGET.VALUE = ', e.target.value);
 							if (e.target.value.length > 0) {
 								setTitle(e.target.value);
 							}
@@ -77,28 +101,7 @@ function CreateCourse({ handleAddingCourse, display }) {
 					/>
 					<MyButton
 						clickEvent={() => {
-							console.log('title=', title);
-							if (
-								title === '' ||
-								description === '' ||
-								courseAuthors.length === 0 ||
-								courseDuration < 1
-							) {
-								alert('Please, fill all the fields');
-							} else {
-								handleAddingCourse(
-									{
-										id: uuidv4(),
-										title: title,
-										description: description,
-										duration: courseDuration,
-										creationDate: '09/05/2002',
-										authors: courseAuthors.map((a) => a.id),
-									},
-									courseAuthors
-								);
-								display(false);
-							}
+							add();
 						}}
 						buttonText='Create course'
 					></MyButton>
