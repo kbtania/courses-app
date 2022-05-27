@@ -6,6 +6,7 @@ import SearchBar from './components/SearchBar/SearchBar';
 import { mockedCoursesList, mockedAuthorsList } from '../../constants';
 import MyButton from '../../common/Button/Button';
 import CreateCourse from '../CreateCourse/CreateCourse';
+import CourseInfo from '../CourseInfo/CourseInfo';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 function Courses() {
@@ -77,6 +78,12 @@ function Courses() {
 				<Route
 					path='add'
 					element={<CreateCourse handleAddingCourse={addCourse} />}
+				/>
+				<Route
+					path=':courseId'
+					element={
+						<CourseInfo authors={allAuthors} courses={courses}></CourseInfo>
+					}
 				/>
 			</Routes>
 		</div>

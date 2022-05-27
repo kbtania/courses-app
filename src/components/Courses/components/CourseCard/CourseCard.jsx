@@ -9,15 +9,20 @@ import {
 
 import MyButton from '../../../../common/Button/Button';
 import styles from './CourseCard.module.css';
+import { useNavigate } from 'react-router-dom';
 
 function CourseCard(props) {
+	const navigate = useNavigate();
 	return (
 		<>
 			<Card className='text-center mb-4'>
 				<Card.Body>
 					<Card.Title>{props.course.title}</Card.Title>
 					<Card.Text>{props.course.description}</Card.Text>
-					<MyButton buttonText='Show course'></MyButton>
+					<MyButton
+						buttonText='Show course'
+						clickEvent={(e) => navigate(`/courses/${props.course.id}`)}
+					></MyButton>
 				</Card.Body>
 
 				<Card.Footer>

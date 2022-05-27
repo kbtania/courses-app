@@ -24,7 +24,8 @@ function Login(props) {
 		const loginInformation = await fetchData('/login', userLoginData);
 		console.log(loginInformation);
 		if (loginInformation.successful) {
-			localStorage.setItem('user', loginInformation.result);
+			localStorage.setItem('user', JSON.stringify(loginInformation));
+			console.log(JSON.parse(localStorage.getItem('user')).user.name);
 			navigate('/courses', { replace: true });
 		} else {
 			setDisplayError(true);
