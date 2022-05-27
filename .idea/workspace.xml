@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36ca7f60-abdf-47e2-b940-72af6651eb02" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CourseInfo/CourseInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseInfo/CourseInfo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Courses/Courses.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Courses/Courses.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Courses/components/CourseCard/CourseCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Courses/components/CourseCard/CourseCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +76,7 @@
       <workItem from="1652425878738" duration="43000" />
       <workItem from="1652470901731" duration="1136000" />
       <workItem from="1652618669609" duration="2397000" />
-      <workItem from="1653075000369" duration="53123000" />
+      <workItem from="1653075000369" duration="54315000" />
     </task>
     <servers />
   </component>

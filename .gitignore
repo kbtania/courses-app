@@ -3,9 +3,9 @@
 # dependencies
 /node_modules
 /.pnp
-/.history
-/.husky
-./.idea
+.history
+.husky
+.idea
 .pnp.js
 
 # testing
