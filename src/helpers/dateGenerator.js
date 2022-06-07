@@ -1,3 +1,3 @@
 export function dateGenerator(date) {
-    return new Date(date).toLocaleDateString('us');
+	return new Date(date).toLocaleDateString('us');
 }

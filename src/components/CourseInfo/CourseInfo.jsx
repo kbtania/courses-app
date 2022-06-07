@@ -1,7 +1,7 @@
-import { mockedAuthorsList } from '../../constants';
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
+
 import styles from './CourseInfo.module.css';
 
 function CourseInfo({ authors, courses }) {
