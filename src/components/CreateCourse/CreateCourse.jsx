@@ -4,27 +4,23 @@ import { v4 as uuidv4 } from 'uuid';
 
 import MyButton from '../../common/Button/Button';
 import styles from './CreateCourse.module.css';
-import { mockedAuthorsList } from '../../constants';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { authorsSelector } from '../../store/authors/selectors';
+import { addAuthor } from '../../store/authors/actionCreators';
+import { addCourse } from '../../store/courses/actionCreators';
+import { pipeDuration } from '../../helpers/pipeDuration';
+import { dateGenerator } from '../../helpers/dateGenerator';
 
-function CreateCourse({ handleAddingCourse }) {
+function CreateCourse() {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const storedAuthors = useSelector(authorsSelector);
 	const [inputValue, setInputValue] = useState(''); // author
-	const [allAuthors, setAllAuthors] = useState(mockedAuthorsList);
-	const [courseAuthors, setCourseAuthors] = useState([]);
+	const [courseAuthors, setCourseAuthors] = useState([]); // chosen authors
 	const [courseDuration, setCourseDuration] = useState(0);
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
-	const addAuthor = (userInput) => {
-		if (inputValue.length >= 2) {
-			let author = {
-				id: uuidv4(),
-				name: userInput,
-			};
-			setAllAuthors([...allAuthors, author]);
-			setInputValue('');
-		}
-	};
 	const checkAuthorField = () => {
 		return inputValue.length < 2;
 	};
@@ -40,27 +36,24 @@ function CreateCourse({ handleAddingCourse }) {
 	};
 	const calculateCourseDuration = (minutes) => {
 		if (String(minutes).length === 0) {
-			console.log('len = 0');
 			setCourseDuration(0);
 		} else {
 			setCourseDuration(minutes);
 		}
 	};
-	function timeConvert(n) {
-		let num = +n;
-		let hours = num / 60;
-		let rhours =
-			String(Math.floor(hours)).length < 2
-				? `0${String(Math.floor(hours))}`
-				: String(Math.floor(hours));
-		let minutes = (hours - rhours) * 60;
-		let rminutes =
-			String(Math.round(minutes)).length < 2
-				? `0${String(Math.round(minutes))} `
-				: String(Math.round(minutes));
-		return `${rhours}:${rminutes}`;
+	function addNewAuthor(val) {
+		if (val.length !== 0) {
+			const newAuthor = {
+				id: uuidv4(),
+				name: val,
+			};
+			dispatch(addAuthor(newAuthor));
+		} else {
+			alert('Fill the field');
+		}
 	}
-	function add() {
+	function addNewCourse() {
+		// add course to the store
 		if (
 			title === '' ||
 			description === '' ||
@@ -69,17 +62,15 @@ function CreateCourse({ handleAddingCourse }) {
 		) {
 			alert('Please, fill all the fields');
 		} else {
-			handleAddingCourse(
-				{
-					id: uuidv4(),
-					title: title,
-					description: description,
-					duration: courseDuration,
-					creationDate: '09/05/2002',
-					authors: courseAuthors.map((a) => a.id),
-				},
-				courseAuthors
-			);
+			const newCourse = {
+				id: uuidv4(),
+				title: title,
+				description: description,
+				duration: courseDuration,
+				creationDate: dateGenerator(new Date()),
+				authors: courseAuthors.map((a) => a.id),
+			};
+			dispatch(addCourse(newCourse));
 			navigate('/courses');
 		}
 	}
@@ -101,7 +92,7 @@ function CreateCourse({ handleAddingCourse }) {
 					/>
 					<MyButton
 						clickEvent={() => {
-							add();
+							addNewCourse();
 						}}
 						buttonText='Create course'
 					></MyButton>
@@ -145,7 +136,7 @@ function CreateCourse({ handleAddingCourse }) {
 							<div className={styles.createAuthorBtn}>
 								<MyButton
 									clickEvent={() => {
-										addAuthor(inputValue);
+										addNewAuthor(inputValue);
 									}}
 									buttonText='Create author'
 								></MyButton>
@@ -156,7 +147,7 @@ function CreateCourse({ handleAddingCourse }) {
 						<p>Authors</p>
 
 						<ListGroup className={styles.authorList}>
-							{allAuthors.map((author) => {
+							{storedAuthors.map((author) => {
 								return (
 									<ListGroup.Item
 										key={author.id}
@@ -166,8 +157,7 @@ function CreateCourse({ handleAddingCourse }) {
 										<div className='ms-2 me-auto fw-bold'>{author.name}</div>
 										<MyButton
 											buttonText='Add author'
-											clickEvent={(e) => {
-												//setChosenAuthor(e.target.innerText);
+											clickEvent={() => {
 												chooseAuthor(author);
 											}}
 										/>
@@ -196,7 +186,7 @@ function CreateCourse({ handleAddingCourse }) {
 						<div className={styles.duration}>
 							Duration:{' '}
 							<span className={styles.durationTime}>
-								{timeConvert(courseDuration)}
+								{pipeDuration(courseDuration)}
 							</span>
 							hours
 						</div>
@@ -225,7 +215,7 @@ function CreateCourse({ handleAddingCourse }) {
 										<div className='ms-2 me-auto fw-bold'>{author.name}</div>
 										<MyButton
 											buttonText='Delete author'
-											clickEvent={(e) => {
+											clickEvent={() => {
 												deleteAuthor(author);
 											}}
 										/>

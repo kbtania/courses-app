@@ -7,22 +7,28 @@ import { Routes, Route } from 'react-router-dom';
 import Registration from './components/Registration/Registration';
 import Login from './components/Login/Login';
 import CreateCourse from './components/CreateCourse/CreateCourse';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 function App() {
 	return (
-		<div className='App'>
-			<Container>
-				<Header />
-				<Routes>
-					{localStorage.user && <Route index path='/' element={<Courses />} />}
-					{!localStorage.user && <Route index path='/' element={<Login />} />}
-					<Route path='registration' element={<Registration />} />
-					<Route path='login' element={<Login />} />
-					<Route path='courses/*' element={<Courses />} />
-					{/*<Route path='courses/add' element={<CreateCourse />} />*/}
-				</Routes>
-			</Container>
-		</div>
+		<Provider store={store}>
+			<div className='App'>
+				<Container>
+					<Header />
+					<Routes>
+						{localStorage.user && (
+							<Route index path='/' element={<Courses />} />
+						)}
+						{!localStorage.user && <Route index path='/' element={<Login />} />}
+						<Route path='registration' element={<Registration />} />
+						<Route path='login' element={<Login />} />
+						<Route path='courses/*' element={<Courses />} />
+						{/*<Route path='courses/add' element={<CreateCourse />} />*/}
+					</Routes>
+				</Container>
+			</div>
+		</Provider>
 	);
 }
 export default App;

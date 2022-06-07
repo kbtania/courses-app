@@ -10,9 +10,16 @@ import {
 import MyButton from '../../../../common/Button/Button';
 import styles from './CourseCard.module.css';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { authorsSelector } from '../../../../store/authors/selectors';
 
 function CourseCard(props) {
 	const navigate = useNavigate();
+	const authors = useSelector(authorsSelector);
+	const authorsNames = props.course.authors
+		.map((authorId) => authors.find((author) => author.id === authorId)?.name)
+		.join(', ');
+
 	return (
 		<>
 			<Card className='text-center mb-4'>
@@ -32,7 +39,7 @@ function CourseCard(props) {
 							<BsFillPersonFill />
 							Authors:{' '}
 						</span>
-						{props.author}
+						{authorsNames}
 					</div>
 					<div>
 						<span className={styles.details}>

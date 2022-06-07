@@ -1,11 +1,11 @@
 import { combineReducers, createStore } from 'redux';
-import { courseReducer } from './courses/reducer';
+import { coursesReducer } from './courses/reducer';
 import { userReducer } from './user/reducer';
 import { authorReducer } from './authors/reducer';
 
 const rootReducer = combineReducers({
 	user: userReducer,
-	courses: courseReducer,
+	courses: coursesReducer,
 	authors: authorReducer,
 });
 export const store = createStore(rootReducer);
