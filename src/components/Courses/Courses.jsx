@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-import styles from './Courses.module.css';
 import CourseCard from './components/CourseCard/CourseCard';
 import SearchBar from './components/SearchBar/SearchBar';
 import MyButton from '../../common/Button/Button';
@@ -9,11 +9,12 @@ import CreateCourse from '../CreateCourse/CreateCourse';
 import CourseInfo from '../CourseInfo/CourseInfo';
 
 import { getCourses, getAuthors } from '../../services';
-import { useDispatch, useSelector } from 'react-redux';
 import { setAllCourses } from '../../store/courses/actionCreators';
 import { setAllAuthors } from '../../store/authors/actionCreators';
 import { coursesSelector } from '../../store/courses/selector';
 import { authorsSelector } from '../../store/authors/selectors';
+
+import styles from './Courses.module.css';
 
 function Courses() {
 	const navigate = useNavigate();

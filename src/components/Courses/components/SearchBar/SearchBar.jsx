@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-
 import { InputGroup, FormControl } from 'react-bootstrap';
-import styles from './SearchBar.module.css';
 
 import MyButton from '../../../../common/Button/Button';
+
+import styles from './SearchBar.module.css';
 
 function SearchBar({ handleSearch }) {
 	const [userSearch, setUserSearch] = useState('');

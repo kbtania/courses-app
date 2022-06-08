@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
-import styles from '../Registration/Registration.module.css';
-import { Form } from 'react-bootstrap';
-import MyButton from '../../common/Button/Button';
-import Error from '../../common/Error/Error';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { Form } from 'react-bootstrap';
+
+import MyButton from '../../common/Button/Button';
+import Error from '../../common/Error/Error';
+
+import { useDispatch } from 'react-redux';
+import { logInUser } from '../../services';
+import { logIn } from '../../store/user/actionCreators';
+
+import styles from '../Registration/Registration.module.css';
 
 function Login(props) {
 	const [userLoginData, setUserLoginData] = useState({});
 	const [displayError, setDisplayError] = useState(false);
 	const URL = 'http://localhost:4000';
-	let navigate = useNavigate();
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	async function fetchData(route, body) {
 		return await fetch(`${URL}${route}`, {
 			method: 'POST',
@@ -20,17 +27,22 @@ function Login(props) {
 			},
 		}).then((response) => response.json());
 	}
-	async function handleLogin() {
-		const loginInformation = await fetchData('/login', userLoginData);
-		console.log(loginInformation);
-		if (loginInformation.successful) {
-			localStorage.setItem('user', JSON.stringify(loginInformation));
-			console.log(JSON.parse(localStorage.getItem('user')).user.name);
-			navigate('/courses', { replace: true });
-		} else {
-			setDisplayError(true);
-		}
+	function handleLogin(e) {
+		const email = userLoginData.email;
+		const password = userLoginData.password;
+		console.log('LOGIN>>>');
+		logInUser({ email, password })
+			.then((response) => {
+				localStorage.setItem('token', response.result);
+				localStorage.setItem('user', JSON.stringify(response.user));
+				dispatch(logIn({ token: response.result, ...response.user }));
+				navigate('/courses');
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	}
+
 	return (
 		<div className={styles.form}>
 			<p className={styles.title}>Login</p>
@@ -59,7 +71,7 @@ function Login(props) {
 					buttonText='Login'
 					clickEvent={(e) => {
 						e.preventDefault();
-						handleLogin();
+						handleLogin(e);
 					}}
 				/>
 			</Form>

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+
 import MyButton from '../../common/Button/Button';
 import Error from '../../common/Error/Error';
+
 import styles from './Registration.module.css';
 
 function Registration(props) {

@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form, Row, Col, Container, ListGroup } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
 
 import MyButton from '../../common/Button/Button';
-import styles from './CreateCourse.module.css';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+
 import { authorsSelector } from '../../store/authors/selectors';
 import { addAuthor } from '../../store/authors/actionCreators';
 import { addCourse } from '../../store/courses/actionCreators';
 import { pipeDuration } from '../../helpers/pipeDuration';
 import { dateGenerator } from '../../helpers/dateGenerator';
+
+import styles from './CreateCourse.module.css';
 
 function CreateCourse() {
 	const navigate = useNavigate();

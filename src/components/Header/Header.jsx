@@ -1,27 +1,58 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navbar, Nav } from 'react-bootstrap';
 
 import Logo from './components/Logo/Logo';
 import MyButton from '../../common/Button/Button';
 
+import { logOut, logIn } from '../../store/user/actionCreators';
+import { userSelector } from '../../store/user/selector';
+
 import styles from './Header.module.css';
 
-import { Navbar, Nav } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-
 function Header() {
+	const dispatch = useDispatch();
+	const user = useSelector(userSelector);
+	const [btnText, setBtnText] = useState('Logout');
 	const navigate = useNavigate();
-	const [userName, setUserName] = useState('');
+	const currentLocation = useLocation();
 	useEffect(() => {
-		if (localStorage.getItem('user')) {
-			let name = JSON.parse(localStorage.getItem('user')).user.name;
-			setUserName(name);
+		const TOKEN = localStorage.getItem('token');
+		if (TOKEN) {
+			const savedUserData = JSON.parse(localStorage.getItem('user'));
+			setBtnText('Logout');
+			dispatch(logIn({ token: TOKEN, ...savedUserData }));
 		}
+	}, []);
+	useEffect(() => {
+		if (localStorage.getItem('token')) {
+			setBtnText('Log out');
+		} else {
+			setBtnText('Log In');
+		}
+		console.log('check token');
 	});
-	const logOut = () => {
+	useEffect(() => {
+		const availableRoutes = ['/registration', '/login'];
+		const checkRoute = availableRoutes.filter((path) =>
+			currentLocation.pathname.includes(path)
+		).length;
+		if (checkRoute && user.isLoggedIn) {
+			navigate('/courses', { replace: true });
+		}
+		if (!checkRoute && !user.isLoggedIn) {
+			navigate('/login');
+		}
+	}, [currentLocation, navigate, user]);
+	function logUserOut() {
+		setBtnText('haha');
+		localStorage.removeItem('token');
 		localStorage.removeItem('user');
-		setUserName('');
+		dispatch(logOut({ isLoggedIn: false }));
+		console.log(user);
 		navigate('/login');
-	};
+	}
 	return (
 		<>
 			<Navbar collapseOnSelect expand='sm' className={styles.navbar}>
@@ -34,16 +65,16 @@ function Header() {
 					className='f-flex justify-content-end'
 				>
 					<Nav>
-						{localStorage.getItem('user') && (
-							<div className={styles.user}>
-								<Nav.Link className={styles.user}>{userName}</Nav.Link>
-								<MyButton
-									className={styles.user}
-									buttonText='Logout'
-									clickEvent={() => logOut()}
-								></MyButton>
-							</div>
-						)}
+						<div className={styles.user}>
+							<Nav.Link className={styles.user}>{user.username}</Nav.Link>
+							<MyButton
+								className={styles.user}
+								buttonText={btnText}
+								clickEvent={() => {
+									logUserOut();
+								}}
+							></MyButton>
+						</div>
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>

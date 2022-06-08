@@ -1,20 +1,25 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Card } from 'react-bootstrap';
 import {
 	BsFillPersonFill,
 	BsFillClockFill,
 	BsFillCalendar2RangeFill,
+	BsFillTrashFill,
+	BsFillPencilFill,
 } from 'react-icons/bs';
 
 import MyButton from '../../../../common/Button/Button';
-import styles from './CourseCard.module.css';
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+
 import { authorsSelector } from '../../../../store/authors/selectors';
+import { deleteCourse } from '../../../../store/courses/actionCreators';
+
+import styles from './CourseCard.module.css';
 
 function CourseCard(props) {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	const authors = useSelector(authorsSelector);
 	const authorsNames = props.course.authors
 		.map((authorId) => authors.find((author) => author.id === authorId)?.name)
@@ -26,10 +31,22 @@ function CourseCard(props) {
 				<Card.Body>
 					<Card.Title>{props.course.title}</Card.Title>
 					<Card.Text>{props.course.description}</Card.Text>
-					<MyButton
-						buttonText='Show course'
-						clickEvent={(e) => navigate(`/courses/${props.course.id}`)}
-					></MyButton>
+					<div className={styles.btn}>
+						<MyButton
+							className={styles.btn}
+							buttonText='Show course'
+							clickEvent={(e) => navigate(`/courses/${props.course.id}`)}
+						></MyButton>
+					</div>
+					<div className={styles.btn}>
+						<MyButton
+							clickEvent={() => dispatch(deleteCourse(props.course.id))}
+							buttonText={<BsFillTrashFill />}
+						></MyButton>
+					</div>
+					<div className={styles.btn}>
+						<MyButton buttonText={<BsFillPencilFill />}></MyButton>
+					</div>
 				</Card.Body>
 
 				<Card.Footer>

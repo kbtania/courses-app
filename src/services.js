@@ -9,7 +9,7 @@ axiosInstance.interceptors.response.use(
 	(error) => Promise.reject(error)
 );
 
-export function logIn(userData) {
+export function logInUser(userData) {
 	return axiosInstance.post('/login', userData);
 }
 
