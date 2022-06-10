@@ -9,14 +9,47 @@ axiosInstance.interceptors.response.use(
 	(error) => Promise.reject(error)
 );
 
+axiosInstance.interceptors.request.use((config) => {
+	const token = localStorage.getItem('token');
+	config.headers.Authorization = token;
+	return config;
+});
+
+// --- User ---
 export function logInUser(userData) {
 	return axiosInstance.post('/login', userData);
 }
 
+export function logOutUser() {
+	return axiosInstance.delete('/logout');
+}
+
+export function getCurrentUser() {
+	return axiosInstance.get('/users/me');
+}
+
+// --- Courses ---
 export function getCourses() {
 	return axiosInstance.get('/courses/all');
 }
 
+export function addCourse(course) {
+	return axiosInstance.post('/courses/add', course);
+}
+
+export function updateCourse(courseId, updatedCourse) {
+	return axiosInstance.put(`/courses/${courseId}`, updatedCourse);
+}
+
+export function deleteCourse(courseId) {
+	return axiosInstance.delete(`/courses/${courseId}`);
+}
+
+// --- Author ---
 export function getAuthors() {
 	return axiosInstance.get('/authors/all');
+}
+
+export function addAuthor(author) {
+	return axiosInstance.post('/authors/add', author);
 }
