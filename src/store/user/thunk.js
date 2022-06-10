@@ -3,15 +3,16 @@ import { setUser, logIn, logOut } from './actionCreators';
 
 export function fetchCurrentUser() {
 	return (dispatch) => {
-		getCurrentUser().then((user) =>
+		getCurrentUser().then((user) => {
+			localStorage.setItem('role', user.result.role);
 			dispatch(
 				setUser({
-					username: user.result.name,
+					name: user.result.name,
 					email: user.result.email,
 					role: user.result.role,
 				})
-			)
-		);
+			);
+		});
 	};
 }
 

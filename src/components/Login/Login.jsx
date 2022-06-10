@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { Form } from 'react-bootstrap';
@@ -6,36 +6,33 @@ import { Form } from 'react-bootstrap';
 import MyButton from '../../common/Button/Button';
 import Error from '../../common/Error/Error';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logInUser } from '../../services';
 import { logIn } from '../../store/user/actionCreators';
+import { fetchCurrentUser } from '../../store/user/thunk';
+import { userSelector } from '../../store/user/selector';
 
 import styles from '../Registration/Registration.module.css';
 
 function Login(props) {
+	const user = useSelector(userSelector);
 	const [userLoginData, setUserLoginData] = useState({});
 	const [displayError, setDisplayError] = useState(false);
 	const URL = 'http://localhost:4000';
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	async function fetchData(route, body) {
-		return await fetch(`${URL}${route}`, {
-			method: 'POST',
-			body: JSON.stringify(body),
-			headers: {
-				'Content-type': 'application/json',
-			},
-		}).then((response) => response.json());
-	}
 	function handleLogin(e) {
 		const email = userLoginData.email;
 		const password = userLoginData.password;
-		console.log('LOGIN>>>');
 		logInUser({ email, password })
 			.then((response) => {
+				// console.log('RESPONSE', response);
 				localStorage.setItem('token', response.result);
 				localStorage.setItem('user', JSON.stringify(response.user));
-				dispatch(logIn({ token: response.result, ...response.user }));
+				dispatch(
+					logIn({ role: 'admin', token: response.result, ...response.user })
+				);
+				dispatch(fetchCurrentUser());
 				navigate('/courses');
 			})
 			.catch((err) => {

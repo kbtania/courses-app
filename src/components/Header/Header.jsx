@@ -8,6 +8,7 @@ import MyButton from '../../common/Button/Button';
 
 import { logOut, logIn } from '../../store/user/actionCreators';
 import { userSelector } from '../../store/user/selector';
+import { fetchCurrentUser } from '../../store/user/thunk';
 
 import styles from './Header.module.css';
 
@@ -17,12 +18,13 @@ function Header() {
 	const [btnText, setBtnText] = useState('Logout');
 	const navigate = useNavigate();
 	const currentLocation = useLocation();
+
 	useEffect(() => {
 		const TOKEN = localStorage.getItem('token');
 		if (TOKEN) {
 			const savedUserData = JSON.parse(localStorage.getItem('user'));
-			setBtnText('Logout');
 			dispatch(logIn({ token: TOKEN, ...savedUserData }));
+			dispatch(fetchCurrentUser());
 		}
 	}, []);
 	useEffect(() => {
@@ -31,7 +33,6 @@ function Header() {
 		} else {
 			setBtnText('Log In');
 		}
-		console.log('check token');
 	});
 	useEffect(() => {
 		const availableRoutes = ['/registration', '/login'];
@@ -46,11 +47,10 @@ function Header() {
 		}
 	}, [currentLocation, navigate, user]);
 	function logUserOut() {
-		setBtnText('haha');
 		localStorage.removeItem('token');
 		localStorage.removeItem('user');
+		localStorage.removeItem('role');
 		dispatch(logOut({ isLoggedIn: false }));
-		console.log(user);
 		navigate('/login');
 	}
 	return (
@@ -66,7 +66,7 @@ function Header() {
 				>
 					<Nav>
 						<div className={styles.user}>
-							<Nav.Link className={styles.user}>{user.username}</Nav.Link>
+							<Nav.Link className={styles.user}>{user.name}</Nav.Link>
 							<MyButton
 								className={styles.user}
 								buttonText={btnText}

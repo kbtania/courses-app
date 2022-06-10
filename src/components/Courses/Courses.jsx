@@ -7,19 +7,23 @@ import SearchBar from './components/SearchBar/SearchBar';
 import MyButton from '../../common/Button/Button';
 import CreateCourse from '../CreateCourse/CreateCourse';
 import CourseInfo from '../CourseInfo/CourseInfo';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 import { getCourses, getAuthors } from '../../services';
 import { setAllCourses } from '../../store/courses/actionCreators';
 import { setAllAuthors } from '../../store/authors/actionCreators';
 import { coursesSelector } from '../../store/courses/selector';
 import { authorsSelector } from '../../store/authors/selectors';
+import { userSelector } from '../../store/user/selector';
 
 import styles from './Courses.module.css';
+import { fetchCurrentUser } from '../../store/user/thunk';
 
 function Courses() {
 	const navigate = useNavigate();
 	const courses = useSelector(coursesSelector);
 	const authors = useSelector(authorsSelector);
+	const user = useSelector(userSelector);
 	const dispatch = useDispatch();
 	const [searchValue, setSearchValue] = useState('');
 	useEffect(() => {
@@ -40,12 +44,14 @@ function Courses() {
 							<div className={styles.search}>
 								<SearchBar handleSearch={setSearchValue} />
 								<div className={styles.addCourseBtn}>
-									<MyButton
-										clickEvent={() => {
-											navigate('/courses/add');
-										}}
-										buttonText='Add new course'
-									/>
+									{user.role === 'admin' && (
+										<MyButton
+											clickEvent={() => {
+												navigate('/courses/add');
+											}}
+											buttonText='Add new course'
+										/>
+									)}
 								</div>
 							</div>
 							{courses
@@ -60,7 +66,15 @@ function Courses() {
 						</div>
 					}
 				/>
-				<Route path='add' element={<CreateCourse />}></Route>
+				<Route
+					path='add'
+					element={
+						<PrivateRoute
+							childComponent={<CreateCourse />}
+							userPath='/courses'
+						></PrivateRoute>
+					}
+				></Route>
 				<Route
 					path=':courseId'
 					element={
