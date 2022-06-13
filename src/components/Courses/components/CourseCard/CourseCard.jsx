@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card } from 'react-bootstrap';
@@ -14,6 +14,7 @@ import MyButton from '../../../../common/Button/Button';
 
 import { authorsSelector } from '../../../../store/authors/selectors';
 import { deleteCourse } from '../../../../store/courses/actionCreators';
+import { userSelector } from '../../../../store/user/selector';
 
 import styles from './CourseCard.module.css';
 
@@ -21,6 +22,10 @@ function CourseCard(props) {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const authors = useSelector(authorsSelector);
+	const user = useSelector(userSelector);
+	useEffect(() => {
+		console.log(user);
+	});
 	const authorsNames = props.course.authors
 		.map((authorId) => authors.find((author) => author.id === authorId)?.name)
 		.join(', ');
@@ -38,15 +43,19 @@ function CourseCard(props) {
 							clickEvent={(e) => navigate(`/courses/${props.course.id}`)}
 						></MyButton>
 					</div>
-					<div className={styles.btn}>
-						<MyButton
-							clickEvent={() => dispatch(deleteCourse(props.course.id))}
-							buttonText={<BsFillTrashFill />}
-						></MyButton>
-					</div>
-					<div className={styles.btn}>
-						<MyButton buttonText={<BsFillPencilFill />}></MyButton>
-					</div>
+					{user.role === 'admin' && (
+						<div className={styles.btnWrapper}>
+							<div className={styles.btn}>
+								<MyButton
+									clickEvent={() => dispatch(deleteCourse(props.course.id))}
+									buttonText={<BsFillTrashFill />}
+								></MyButton>
+							</div>
+							<div className={styles.btn}>
+								<MyButton buttonText={<BsFillPencilFill />}></MyButton>
+							</div>
+						</div>
+					)}
 				</Card.Body>
 
 				<Card.Footer>
