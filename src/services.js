@@ -4,16 +4,15 @@ const URL = 'http://localhost:4000/';
 const axiosInstance = axios.create({
 	baseURL: URL,
 });
+axiosInstance.interceptors.request.use((config) => {
+	config.headers.Authorization = localStorage.getItem('token');
+	return config;
+});
+
 axiosInstance.interceptors.response.use(
 	(response) => Promise.resolve(response.data),
 	(error) => Promise.reject(error)
 );
-
-axiosInstance.interceptors.request.use((config) => {
-	const token = localStorage.getItem('token');
-	config.headers.Authorization = token;
-	return config;
-});
 
 // --- User ---
 export function logInUser(userData) {

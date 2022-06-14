@@ -6,9 +6,16 @@ import { v4 as uuidv4 } from 'uuid';
 
 import MyButton from '../../common/Button/Button';
 
+import {
+	fetchCreateCourse,
+	fetchGetCourses,
+	fetchUpdateCourse,
+} from '../../store/courses/thunk';
+import { fetchAuthor } from '../../store/authors/thunk';
 import { authorsSelector } from '../../store/authors/selectors';
-import { addAuthor } from '../../store/authors/actionCreators';
-import { addCourse } from '../../store/courses/actionCreators';
+//import { coursesSelector } from '../../store/courses/selector';
+//import { addAuthor } from '../../store/authors/actionCreators';
+//import { addSomeCourse } from '../../store/courses/actionCreators';
 import { pipeDuration } from '../../helpers/pipeDuration';
 import { dateGenerator } from '../../helpers/dateGenerator';
 
@@ -18,6 +25,7 @@ function CreateCourse() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const storedAuthors = useSelector(authorsSelector);
+	//const courses = useSelector(coursesSelector);
 	const [inputValue, setInputValue] = useState(''); // author
 	const [courseAuthors, setCourseAuthors] = useState([]); // chosen authors
 	const [courseDuration, setCourseDuration] = useState(0);
@@ -46,16 +54,14 @@ function CreateCourse() {
 	function addNewAuthor(val) {
 		if (val.length !== 0) {
 			const newAuthor = {
-				id: uuidv4(),
 				name: val,
 			};
-			dispatch(addAuthor(newAuthor));
+			dispatch(fetchAuthor(newAuthor));
 		} else {
 			alert('Fill the field');
 		}
 	}
 	function addNewCourse() {
-		// add course to the store
 		if (
 			title === '' ||
 			description === '' ||
@@ -65,15 +71,16 @@ function CreateCourse() {
 			alert('Please, fill all the fields');
 		} else {
 			const newCourse = {
-				id: uuidv4(),
+				// id: uuidv4(),
 				title: title,
 				description: description,
-				duration: courseDuration,
+				duration: parseFloat(courseDuration),
 				creationDate: dateGenerator(new Date()),
 				authors: courseAuthors.map((a) => a.id),
 			};
-			dispatch(addCourse(newCourse));
+			dispatch(fetchCreateCourse(newCourse));
 			navigate('/courses');
+			//dispatch(fetchGetCourses);
 		}
 	}
 	return (

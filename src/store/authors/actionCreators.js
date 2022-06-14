@@ -7,7 +7,7 @@ export function setAllAuthors(authors) {
 	};
 }
 
-export function addAuthor(newAuthor) {
+export function addSomeAuthor(newAuthor) {
 	return {
 		type: ADD_AUTHOR,
 		payload: newAuthor,

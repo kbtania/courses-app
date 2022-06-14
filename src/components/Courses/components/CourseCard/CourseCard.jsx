@@ -12,42 +12,39 @@ import {
 
 import MyButton from '../../../../common/Button/Button';
 
+import { fetchDeleteCourse } from '../../../../store/courses/thunk';
 import { authorsSelector } from '../../../../store/authors/selectors';
-import { deleteCourse } from '../../../../store/courses/actionCreators';
 import { userSelector } from '../../../../store/user/selector';
 
 import styles from './CourseCard.module.css';
 
-function CourseCard(props) {
+function CourseCard({ course }) {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const authors = useSelector(authorsSelector);
 	const user = useSelector(userSelector);
-	useEffect(() => {
-		console.log(user);
-	});
-	const authorsNames = props.course.authors
+
+	const authorsNames = course.authors
 		.map((authorId) => authors.find((author) => author.id === authorId)?.name)
 		.join(', ');
-
 	return (
 		<>
 			<Card className='text-center mb-4'>
 				<Card.Body>
-					<Card.Title>{props.course.title}</Card.Title>
-					<Card.Text>{props.course.description}</Card.Text>
+					<Card.Title>{course.title}</Card.Title>
+					<Card.Text>{course.description}</Card.Text>
 					<div className={styles.btn}>
 						<MyButton
 							className={styles.btn}
 							buttonText='Show course'
-							clickEvent={(e) => navigate(`/courses/${props.course.id}`)}
+							clickEvent={(e) => navigate(`/courses/${course.id}`)}
 						></MyButton>
 					</div>
 					{user.role === 'admin' && (
 						<div className={styles.btnWrapper}>
 							<div className={styles.btn}>
 								<MyButton
-									clickEvent={() => dispatch(deleteCourse(props.course.id))}
+									clickEvent={() => dispatch(fetchDeleteCourse(course.id))}
 									buttonText={<BsFillTrashFill />}
 								></MyButton>
 							</div>
@@ -72,14 +69,14 @@ function CourseCard(props) {
 							{' '}
 							<BsFillClockFill /> Duration:{' '}
 						</span>
-						{props.course.duration}
+						{course.duration}
 					</div>
 					<div>
 						<span className={styles.details}>
 							{' '}
 							<BsFillCalendar2RangeFill /> Created:{' '}
 						</span>
-						{props.course.creationDate}
+						{course.creationDate}
 					</div>
 				</Card.Footer>
 			</Card>

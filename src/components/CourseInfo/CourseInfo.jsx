@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 
 import styles from './CourseInfo.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { coursesSelector } from '../../store/courses/selector';
+import { authorsSelector } from '../../store/authors/selectors';
+import { fetchAllAuthors } from '../../store/authors/thunk';
+import { fetchGetCourses } from '../../store/courses/thunk';
 
-function CourseInfo({ authors, courses }) {
+function CourseInfo({ course }) {
 	const { courseId } = useParams();
+	const courses = useSelector(coursesSelector);
+	const authors = useSelector(authorsSelector);
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(fetchAllAuthors());
+		dispatch(fetchGetCourses());
+	}, []);
+
 	const courseData = courses.find((course) => course.id === courseId);
+
 	if (!courseData) {
 		return <h1>No course found</h1>;
 	}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 import CourseCard from './components/CourseCard/CourseCard';
 import SearchBar from './components/SearchBar/SearchBar';
@@ -18,22 +19,34 @@ import { userSelector } from '../../store/user/selector';
 
 import styles from './Courses.module.css';
 import { fetchCurrentUser } from '../../store/user/thunk';
+import { fetchGetCourses } from '../../store/courses/thunk';
+import { fetchAllAuthors } from '../../store/authors/thunk';
 
 function Courses() {
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
+	// const courses = useSelector(coursesSelector);
+	// const authors = useSelector(authorsSelector);
+	// const user = useSelector(userSelector);
+	// const dispatch = useDispatch();
+	// const [searchValue, setSearchValue] = useState('');
+	// useEffect(() => {
+	// 	dispatch(fetchAllAuthors());
+	// 	getCourses()
+	// 		.then((courses) => dispatch(setAllCourses(courses.result)))
+	// 		.catch((err) => {
+	// 			console.log(err);
+	// 		});
+	// }, []);
 	const courses = useSelector(coursesSelector);
-	const authors = useSelector(authorsSelector);
 	const user = useSelector(userSelector);
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const [searchValue, setSearchValue] = useState('');
 	useEffect(() => {
-		getAuthors()
-			.then((authors) => dispatch(setAllAuthors(authors.result)))
-			.catch((error) => console.log(error));
-		getCourses()
-			.then((courses) => dispatch(setAllCourses(courses.result)))
-			.catch((error) => console.log(error));
+		dispatch(fetchAllAuthors());
+		dispatch(fetchGetCourses());
 	}, []);
+
 	return (
 		<div>
 			<Routes>
@@ -61,7 +74,7 @@ function Courses() {
 										.includes(searchValue)
 								)
 								.map((course) => (
-									<CourseCard key={course.id} course={course}></CourseCard>
+									<CourseCard key={uuidv4()} course={course}></CourseCard>
 								))}
 						</div>
 					}
@@ -77,9 +90,7 @@ function Courses() {
 				></Route>
 				<Route
 					path=':courseId'
-					element={
-						<CourseInfo authors={authors} courses={courses}></CourseInfo>
-					}
+					element={<CourseInfo courses={courses}></CourseInfo>}
 				></Route>
 			</Routes>
 		</div>
