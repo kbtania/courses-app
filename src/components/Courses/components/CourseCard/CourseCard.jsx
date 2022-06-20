@@ -59,7 +59,7 @@ function CourseCard({ course }) {
 				</Card.Body>
 
 				<Card.Footer>
-					<div className={styles.author}>
+					<div className={styles.author} data-testid='authors-list'>
 						<span className={styles.details}>
 							{' '}
 							<BsFillPersonFill />
@@ -75,7 +75,7 @@ function CourseCard({ course }) {
 						{course.duration}
 					</div>
 					<div>
-						<span className={styles.details}>
+						<span className={styles.details} data-testId='course-created'>
 							{' '}
 							<BsFillCalendar2RangeFill /> Created:{' '}
 						</span>
