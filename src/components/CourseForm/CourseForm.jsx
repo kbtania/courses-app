@@ -206,7 +206,7 @@ export default function CourseForm() {
 					</Col>
 					<Col md={6}>
 						<p>Authors</p>
-						<ListGroup className={styles.authorList}>
+						<ListGroup className={styles.authorList} data-testid='all-authors'>
 							{authorsList.map((author) => {
 								return (
 									<ListGroup.Item
@@ -253,6 +253,7 @@ export default function CourseForm() {
 							Author list is empty
 						</p>
 						<ListGroup
+							data-testid='course-authors'
 							className={`${
 								courseAuthorsList.length === 0 ? '' : styles.chosenAuthorList
 							}`}

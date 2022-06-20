@@ -17,7 +17,6 @@ import { authorsSelector } from '../../../../store/authors/selectors';
 import { userSelector } from '../../../../store/user/selector';
 
 import styles from './CourseCard.module.css';
-import { coursesSelector } from '../../../../store/courses/selector';
 
 function CourseCard({ course }) {
 	const navigate = useNavigate();
