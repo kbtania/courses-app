@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import CourseCard from './components/CourseCard/CourseCard';
 import SearchBar from './components/SearchBar/SearchBar';
 import MyButton from '../../common/Button/Button';
-import CreateCourse from '../CreateCourse/CreateCourse';
+import CourseForm from '../CourseForm/CourseForm';
 import CourseInfo from '../CourseInfo/CourseInfo';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
@@ -83,7 +83,7 @@ function Courses() {
 					path='add'
 					element={
 						<PrivateRoute
-							childComponent={<CreateCourse />}
+							childComponent={<CourseForm />}
 							userPath='/courses'
 						></PrivateRoute>
 					}
@@ -91,6 +91,15 @@ function Courses() {
 				<Route
 					path=':courseId'
 					element={<CourseInfo courses={courses}></CourseInfo>}
+				></Route>
+				<Route
+					path='update/:courseId'
+					element={
+						<PrivateRoute
+							childComponent={<CourseForm />}
+							userPath='/courses'
+						></PrivateRoute>
+					}
 				></Route>
 			</Routes>
 		</div>

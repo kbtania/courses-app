@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card } from 'react-bootstrap';
 import {
@@ -17,13 +17,13 @@ import { authorsSelector } from '../../../../store/authors/selectors';
 import { userSelector } from '../../../../store/user/selector';
 
 import styles from './CourseCard.module.css';
+import { coursesSelector } from '../../../../store/courses/selector';
 
 function CourseCard({ course }) {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const authors = useSelector(authorsSelector);
 	const user = useSelector(userSelector);
-
 	const authorsNames = course.authors
 		.map((authorId) => authors.find((author) => author.id === authorId)?.name)
 		.join(', ');
@@ -49,7 +49,10 @@ function CourseCard({ course }) {
 								></MyButton>
 							</div>
 							<div className={styles.btn}>
-								<MyButton buttonText={<BsFillPencilFill />}></MyButton>
+								<MyButton
+									clickEvent={() => navigate(`/courses/update/${course.id}`)}
+									buttonText={<BsFillPencilFill />}
+								></MyButton>
 							</div>
 						</div>
 					)}

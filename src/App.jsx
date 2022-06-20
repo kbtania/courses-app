@@ -6,7 +6,7 @@ import { Container } from 'react-bootstrap';
 import { Routes, Route } from 'react-router-dom';
 import Registration from './components/Registration/Registration';
 import Login from './components/Login/Login';
-import CreateCourse from './components/CreateCourse/CreateCourse';
+import CourseForm from './components/CourseForm/CourseForm';
 import { Provider } from 'react-redux';
 import { store } from './store';
 
@@ -24,7 +24,7 @@ function App() {
 						<Route path='registration' element={<Registration />} />
 						<Route path='login' element={<Login />} />
 						<Route path='courses/*' element={<Courses />} />
-						{/*<Route path='courses/add' element={<CreateCourse />} />*/}
+						{/*<Route path='courses/add' element={<CourseForm />} />*/}
 					</Routes>
 				</Container>
 			</div>
