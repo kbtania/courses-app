@@ -95,8 +95,6 @@ test('CourseForm should be showed after a click on a button "Add new course"', a
 			</Router>
 		</Provider>
 	);
-	const button = screen.getByTestId('add-course-button');
-	userEvent.click(button);
-	const courseForm = screen.getByTestId('course-form');
-	expect(courseForm).toBeInTheDocument();
+	userEvent.click(screen.getByTestId('add-course-button'));
+	expect(screen.getByTestId('course-form')).toBeInTheDocument();
 });
