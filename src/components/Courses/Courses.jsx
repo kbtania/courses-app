@@ -10,33 +10,18 @@ import CourseForm from '../CourseForm/CourseForm';
 import CourseInfo from '../CourseInfo/CourseInfo';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
-import { getCourses, getAuthors } from '../../services';
-import { setAllCourses } from '../../store/courses/actionCreators';
-import { setAllAuthors } from '../../store/authors/actionCreators';
 import { coursesSelector } from '../../store/courses/selector';
-import { authorsSelector } from '../../store/authors/selectors';
 import { userSelector } from '../../store/user/selector';
 
 import styles from './Courses.module.css';
-import { fetchCurrentUser } from '../../store/user/thunk';
 import { fetchGetCourses } from '../../store/courses/thunk';
 import { fetchAllAuthors } from '../../store/authors/thunk';
 
+export const LocationDisplay = () => {
+	return <div data-testid='course-form'></div>;
+};
+
 function Courses() {
-	// const navigate = useNavigate();
-	// const courses = useSelector(coursesSelector);
-	// const authors = useSelector(authorsSelector);
-	// const user = useSelector(userSelector);
-	// const dispatch = useDispatch();
-	// const [searchValue, setSearchValue] = useState('');
-	// useEffect(() => {
-	// 	dispatch(fetchAllAuthors());
-	// 	getCourses()
-	// 		.then((courses) => dispatch(setAllCourses(courses.result)))
-	// 		.catch((err) => {
-	// 			console.log(err);
-	// 		});
-	// }, []);
 	const courses = useSelector(coursesSelector);
 	const user = useSelector(userSelector);
 	const dispatch = useDispatch();
@@ -56,7 +41,10 @@ function Courses() {
 						<div>
 							<div className={styles.search}>
 								<SearchBar handleSearch={setSearchValue} />
-								<div className={styles.addCourseBtn}>
+								<div
+									className={styles.addCourseBtn}
+									data-testid='add-course-button'
+								>
 									{user.role === 'admin' && (
 										<MyButton
 											clickEvent={() => {
@@ -67,15 +55,17 @@ function Courses() {
 									)}
 								</div>
 							</div>
-							{courses
-								.filter((course) =>
-									`${course.title} ${course.id}`
-										.toLocaleLowerCase()
-										.includes(searchValue)
-								)
-								.map((course) => (
-									<CourseCard key={uuidv4()} course={course}></CourseCard>
-								))}
+							<div data-testid='courses'>
+								{courses
+									.filter((course) =>
+										`${course.title} ${course.id}`
+											.toLocaleLowerCase()
+											.includes(searchValue)
+									)
+									.map((course) => (
+										<CourseCard key={uuidv4()} course={course}></CourseCard>
+									))}
+							</div>
 						</div>
 					}
 				/>
@@ -102,6 +92,7 @@ function Courses() {
 					}
 				></Route>
 			</Routes>
+			<LocationDisplay />
 		</div>
 	);
 }

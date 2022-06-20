@@ -29,7 +29,7 @@ function CourseCard({ course }) {
 		.join(', ');
 	return (
 		<>
-			<Card className='text-center mb-4'>
+			<Card className='text-center mb-4' data-testid='course-card'>
 				<Card.Body>
 					<Card.Title>{course.title}</Card.Title>
 					<Card.Text>{course.description}</Card.Text>
@@ -75,7 +75,7 @@ function CourseCard({ course }) {
 						{course.duration}
 					</div>
 					<div>
-						<span className={styles.details} data-testId='course-created'>
+						<span className={styles.details} data-testid='course-created'>
 							{' '}
 							<BsFillCalendar2RangeFill /> Created:{' '}
 						</span>
